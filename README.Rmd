@@ -1,30 +1,30 @@
-Cut\&Run Analysis Pipeline Example
-================
-Chris Sansam and Tyler Noble
-6/25/21
+---
+title: "Cut&Run Analysis Pipeline Example"
+output:
+  github_document:
+    toc: true
+    toc_depth: 4
+author: "Chris Sansam and Tyler Noble"
+date: "6/25/21"
+---
 
-  - [Scripts and Functions to Run](#scripts-and-functions-to-run)
-      - [Locations on Cluster:](#locations-on-cluster)
-      - [Locations on Github](#locations-on-github)
-  - [Setup directory](#setup-directory)
-  - [Run script](#run-script)
-  - [Cleanup folder](#cleanup-folder)
+```{r setup, include=FALSE, eval=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 # Scripts and Functions to Run
 
 ## Locations on Cluster:
-
-<smb://data/Sansam/hpc-nobackup/scripts/CutAndRun_2020Aug1/analyzeCutAndRunPeaks2.sh>
-<smb://data/Sansam/hpc-nobackup/scripts/CutAndRun_2020Aug1/functions/peakAnalysisFunctions02.sh>
+smb://data/Sansam/hpc-nobackup/scripts/CutAndRun_2020Aug1/analyzeCutAndRunPeaks2.sh
+smb://data/Sansam/hpc-nobackup/scripts/CutAndRun_2020Aug1/functions/peakAnalysisFunctions02.sh
 
 ## Locations on Github
-
-<https://github.com/SansamLab/SansamLab-SansamLabClusterScripts/blob/main/CutAndRun_2020Aug1/analyzeCutAndRunPeaks2.sh>
-<https://github.com/SansamLab/SansamLab-SansamLabClusterScripts/blob/main/CutAndRun_2020Aug1/functions/peakAnalysisFunctions02.sh>
+https://github.com/SansamLab/SansamLab-SansamLabClusterScripts/blob/main/CutAndRun_2020Aug1/analyzeCutAndRunPeaks2.sh
+https://github.com/SansamLab/SansamLab-SansamLabClusterScripts/blob/main/CutAndRun_2020Aug1/functions/peakAnalysisFunctions02.sh
 
 # Setup directory
 
-``` bash
+```{bash, eval=FALSE}
 # make and change into directory
 mkdir 2021Jun25_CutRunAnalysisExample
 cd 2021Jun25_CutRunAnalysisExample
@@ -35,15 +35,13 @@ sed -i.bak 's/\r$//' MZ1sheet_v2.txt
 ```
 
 # Run script
-
-``` bash
+```{bash, eval=FALSE}
 cd 2021Jun25_CutRunAnalysisExample
 sbatch --wrap="/Volumes/Sansam/hpc-nobackup/scripts/CutAndRun_2020Aug1/analyzeCutAndRunPeaks2.sh MZ1sheet_v2.txt"
 ```
 
 # Cleanup folder
-
-``` bash
+```{bash, eval=FALSE}
 cd 2021Jun25_CutRunAnalysisExample
 
 # Make function for creating directory and moving files
@@ -68,3 +66,5 @@ cleanup TabFilesForPeakHeatPlots "*.tab"
 cleanup PdfsForPeakHeatPlots "*.pdf"
 cleanup ReadCountsInAllPeaks "*counts.txt"
 ```
+
+
