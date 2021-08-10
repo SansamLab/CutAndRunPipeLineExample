@@ -112,6 +112,16 @@ to the object store in the CutAndRunBams folder
 <https://github.com/SansamLab/SansamLab-SansamLabClusterScripts/blob/main/CutAndRun_2020Aug1/analyzeCutAndRunPeaks2.sh>
 <https://github.com/SansamLab/SansamLab-SansamLabClusterScripts/blob/main/CutAndRun_2020Aug1/functions/peakAnalysisFunctions02.sh>
 
+### Input table description
+Column 1:  Treatment sample Object store container
+Column 2:  Treatment sample Object store file prefix
+Column 3:  Treatment sample filename
+Column 4:  Control sample Object store container
+Column 5:  Control sample Object store file prefix
+Column 6:  Control sample filename
+Column 7:  Sample label
+Column 8:  Replicate grouping label
+
 ## Setup directory
 
 ``` bash
