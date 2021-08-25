@@ -170,31 +170,3 @@ cleanup TabFilesForPeakHeatPlots "*.tab"
 cleanup PdfsForPeakHeatPlots "*.pdf"
 cleanup ReadCountsInAllPeaks "*counts.txt"
 ```
-
-# Make a custom heat plot - STILL UNDER DEVELOPMENT\!
-
-``` bash
-# make an array with the sample names you want
-
-sampleNames=(MTBP_250_Cis MTBP_250_MZ1)
-array=($(for smpleName in ${sampleNames[@]}; do
-    grep $smpleName MZ1sheet_v2.txt
-done | awk '{print $8}'))
-echo ${array[@]}
-
-function getArrayColumn {
-filename="$1"
-shift
-column="$1"
-shift
-local arr=("$@")
-array=($(for smpleName in "${arr[@]}"; do
-    grep $smpleName $filename
-done | awk '{print $8}'))
-echo ${array[@]}
-}
-
-sampleNames=(MTBP_250_Cis MTBP_250_MZ1)
-
-test=($(getArrayColumn "${sampleNames[@]}"))
-```
